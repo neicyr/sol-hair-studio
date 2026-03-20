@@ -228,24 +228,18 @@ footer {
 <a class="whatsapp" href="https://wa.me/5512991925432" target="_blank">
 WhatsApp
 </a>
-  <audio autoplay loop>
+
+<audio autoplay loop muted id="bg-audio">
   <source src="Revolution.mp3" type="audio/mpeg">
 </audio>
 
-  <audio id="musica" loop>
-  <source src="musica.mp3" type="audio/mpeg">
-</audio>
-
-<button onclick="iniciarMusica()" 
-style="position:fixed; bottom:20px; left:20px; padding:10px; background:#000; color:#fff; border:none; border-radius:8px; cursor:pointer;">
-▶ Iniciar Apresentação
-</button>
-
 <script>
-function iniciarMusica() {
-  let audio = document.getElementById("musica");
-  audio.play();
-}
+  // força iniciar o áudio após interação
+  document.addEventListener("click", function () {
+    const audio = document.getElementById("bg-audio");
+    audio.muted = false;
+    audio.play();
+  });
 </script>
 
 <footer>
