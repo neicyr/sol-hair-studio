@@ -81,12 +81,7 @@ h2 {
   display: flex;
 }
 
-.especial .antes-depois img {
-  width: 50%;
-  height: auto; /* ESSA LINHA É A CHAVE */
-  max-height: 320px;
-  object-fit: contain;
-}
+.antes-depois img { width: 50%; height: 320px; object-fit: cover; }
 
 .especial .antes-depois {
   display: flex;
@@ -94,10 +89,10 @@ h2 {
   justify-content: center;
 }
 
-.especial .antes-depois img {
-  width: 50%;
-  max-height: 320px;
-  object-fit: contain;
+.especial .antes-depois {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
   
 /* TEXTO */
