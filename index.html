@@ -28,16 +28,6 @@ header img {
   height: 190px;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 32px;
-}
-
-header p {
-  margin-top: 10px;
-  color: #bbb;
-}
-
 /* SEÇÕES */
 section {
   padding: 60px 20px;
@@ -70,7 +60,17 @@ h2 {
   transform: translateY(-5px) scale(1.02);
 }
 
-/* ANTES E DEPOIS (PADRÃO) */
+/* IMAGENS */
+img {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+img:hover {
+  transform: scale(1.05);
+}
+
+/* ANTES E DEPOIS */
 .antes-depois {
   display: flex;
 }
@@ -81,7 +81,7 @@ h2 {
   object-fit: cover;
 }
 
-/* CACHEADO (AGORA DECENTE 😌) */
+/* CACHEADO */
 .especial .antes-depois {
   display: flex;
   justify-content: center;
@@ -91,11 +91,11 @@ h2 {
 }
 
 .especial .antes-depois img {
-  width: 35%;
+  width: 40%;
   height: auto;
-  aspect-ratio: 3/4; /* mantém proporção bonita */
+  aspect-ratio: 3/4;
   object-fit: contain;
-  background: #f0f0f0; /* fundo elegante ao invés de vazio feio */
+  background: #f0f0f0;
   border-radius: 10px;
 }
 
@@ -118,6 +118,36 @@ h2 {
   font-weight: bold;
 }
 
+/* MODAL */
+#modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+#modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+/* BOTÃO FECHAR */
+#fechar {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+}
+
 /* FOOTER */
 footer {
   text-align: center;
@@ -134,9 +164,7 @@ footer {
 <header>
  <img src="logo.png">
   <h1>Beleza que transforma</h1>
-  <p>
-    Há 35 anos realçando a beleza e elevando a autoestima através de técnicas modernas e resultados reais.
-  </p>
+  <p>Há 35 anos realçando a beleza e elevando a autoestima através de técnicas modernas e resultados reais.</p>
 </header>
 
 <!-- ESCOVAS -->
@@ -146,98 +174,18 @@ footer {
 
 <div class="card">
 <div class="antes-depois">
-<img src="escova1-antes.jpeg">
-<img src="escova1-depois.jpeg">
+<img src="escova1-antes.jpeg" onclick="abrirModal(this.src)">
+<img src="escova1-depois.jpeg" onclick="abrirModal(this.src)">
 </div>
 <p>Escova com Babyliss</p>
 </div>
 
 <div class="card">
 <div class="antes-depois">
-<img src="escova2-antes.jpeg">
-<img src="escova2-depois.jpeg">
+<img src="escova2-antes.jpeg" onclick="abrirModal(this.src)">
+<img src="escova2-depois.jpeg" onclick="abrirModal(this.src)">
 </div>
 <p>Escova Modelada</p>
-</div>
-
-<div class="card">
-<div class="antes-depois">
-<img src="escova3-antes.jpeg">
-<img src="escova3-depois.jpeg">
-</div>
-<p>Escova Polida</p>
-</div>
-
-<div class="card">
-<div class="antes-depois">
-<img src="escova4-antes.jpeg">
-<img src="escova4-depois.jpeg">
-</div>
-<p>Escova Polida</p>
-</div>
-
-<div class="card">
-<div class="antes-depois">
-<img src="escova5-antes.jpeg">
-<img src="escova5a-depois.jpeg">
-</div>
-<p>Escova Polida</p>
-</div>
-
-<div class="card">
-<div class="antes-depois">
-<img src="escova5-antes.jpeg">
-<img src="escova5-depois.jpeg">
-</div>
-<p>Preparação com alegria</p>
-</div>
-
-<div class="card">
-<div class="antes-depois">
-<img src="escova6-antes.jpeg">
-<img src="escova6-depois.jpeg">
-</div>
-<p>Lavagem</p>
-</div>
-
-<div class="card">
-<div class="antes-depois">
-<img src="escova7-antes.jpeg">
-<img src="escova7-depois.jpeg">
-</div>
-<p>Concentração desde o início</p>
-</div>
-
-</div>
-</section>
-
-<!-- PENTEADOS -->
-<section>
-<h2>Penteados</h2>
-<div class="galeria">
-
-<div class="card">
-<div class="antes-depois">
-<img src="penteado1-antes.jpeg">
-<img src="penteado1-depois.jpeg">
-</div>
-<p>Penteado Elegante</p>
-</div>
-
-<div class="card">
-<div class="antes-depois">
-<img src="penteado2-antes.jpeg">
-<img src="penteado2-depois.jpeg">
-</div>
-<p>Penteado para Eventos</p>
-</div>
-
-<div class="card">
-<div class="antes-depois">
-<img src="sofisticado1.jpeg">
-<img src="sofisticado2.jpeg">
-</div>
-<p>Penteado Sofisticado</p>
 </div>
 
 </div>
@@ -250,8 +198,8 @@ footer {
 
 <div class="card especial">
 <div class="antes-depois">
-<img src="cacheado-antes.jpeg">
-<img src="cacheado-depois.jpeg">
+<img src="cacheado-antes.jpeg" onclick="abrirModal(this.src)">
+<img src="cacheado-depois.jpeg" onclick="abrirModal(this.src)">
 </div>
 <p>Definição, leveza e movimento para valorizar a beleza natural dos seus cachos</p>
 </div>
@@ -263,11 +211,27 @@ footer {
 WhatsApp
 </a>
 
+<!-- MODAL -->
+<div id="modal" onclick="fecharModal()">
+  <span id="fechar">&times;</span>
+  <img id="imgModal">
+</div>
+
+<!-- AUDIO -->
 <audio autoplay loop muted id="bg-audio">
   <source src="Revolution.mp3" type="audio/mpeg">
 </audio>
 
 <script>
+function abrirModal(src) {
+  document.getElementById("modal").style.display = "flex";
+  document.getElementById("imgModal").src = src;
+}
+
+function fecharModal() {
+  document.getElementById("modal").style.display = "none";
+}
+
 document.addEventListener("click", function () {
   const audio = document.getElementById("bg-audio");
   audio.muted = false;
