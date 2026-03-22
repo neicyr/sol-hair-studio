@@ -81,10 +81,11 @@ h2 {
   display: flex;
 }
 
-.antes-depois img {
+.especial .antes-depois img {
   width: 50%;
-  height: 320px;
-  object-fit: cover;
+  height: auto; /* ESSA LINHA É A CHAVE */
+  max-height: 320px;
+  object-fit: contain;
 }
 
 .especial .antes-depois {
