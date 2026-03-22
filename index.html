@@ -84,17 +84,18 @@ h2 {
 /* CACHEADO (AGORA DECENTE 😌) */
 .especial .antes-depois {
   display: flex;
-  flex-direction: column; /* empilha ao invés de lado a lado */
+  justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 20px;
   padding: 15px;
 }
 
 .especial .antes-depois img {
-  width: 100%;
-  max-width: 400px;
+  width: 48%;
   height: auto;
+  aspect-ratio: 3/4; /* mantém proporção bonita */
   object-fit: contain;
+  background: #f0f0f0; /* fundo elegante ao invés de vazio feio */
   border-radius: 10px;
 }
 
