@@ -81,7 +81,7 @@ img:hover {
   object-fit: cover;
 }
 
-/* CACHEADO AJUSTADO */
+/* CACHEADO */
 .especial .antes-depois {
   display: flex;
   justify-content: center;
@@ -126,26 +126,41 @@ img:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.9);
+  background: rgba(0,0,0,0.95);
   justify-content: center;
   align-items: center;
   z-index: 999;
 }
 
 #modal img {
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 85%;
+  max-height: 85%;
   border-radius: 10px;
 }
 
+/* BOTÃO X */
 #fechar {
   position: absolute;
   top: 20px;
   right: 30px;
   color: #fff;
-  font-size: 30px;
+  font-size: 35px;
   cursor: pointer;
 }
+
+/* SETAS */
+#prev, #next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 50px;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+}
+
+#prev { left: 20px; }
+#next { right: 20px; }
 
 /* FOOTER */
 footer {
@@ -172,43 +187,43 @@ footer {
 <div class="galeria">
 
 <div class="card"><div class="antes-depois">
-<img src="escova1-antes.jpeg" onclick="abrirModal(this.src)">
-<img src="escova1-depois.jpeg" onclick="abrirModal(this.src)">
+<img src="escova1-antes.jpeg">
+<img src="escova1-depois.jpeg">
 </div><p>Escova com Babyliss</p></div>
 
 <div class="card"><div class="antes-depois">
-<img src="escova2-antes.jpeg" onclick="abrirModal(this.src)">
-<img src="escova2-depois.jpeg" onclick="abrirModal(this.src)">
+<img src="escova2-antes.jpeg">
+<img src="escova2-depois.jpeg">
 </div><p>Escova Modelada</p></div>
 
 <div class="card"><div class="antes-depois">
-<img src="escova3-antes.jpeg" onclick="abrirModal(this.src)">
-<img src="escova3-depois.jpeg" onclick="abrirModal(this.src)">
+<img src="escova3-antes.jpeg">
+<img src="escova3-depois.jpeg">
 </div><p>Escova Polida</p></div>
 
 <div class="card"><div class="antes-depois">
-<img src="escova4-antes.jpeg" onclick="abrirModal(this.src)">
-<img src="escova4-depois.jpeg" onclick="abrirModal(this.src)">
+<img src="escova4-antes.jpeg">
+<img src="escova4-depois.jpeg">
 </div><p>Escova Polida</p></div>
 
 <div class="card"><div class="antes-depois">
-<img src="escova5-antes.jpeg" onclick="abrirModal(this.src)">
-<img src="escova5a-depois.jpeg" onclick="abrirModal(this.src)">
+<img src="escova5-antes.jpeg">
+<img src="escova5a-depois.jpeg">
 </div><p>Escova Polida</p></div>
 
 <div class="card"><div class="antes-depois">
-<img src="escova5-antes.jpeg" onclick="abrirModal(this.src)">
-<img src="escova5-depois.jpeg" onclick="abrirModal(this.src)">
+<img src="escova5-antes.jpeg">
+<img src="escova5-depois.jpeg">
 </div><p>Preparação com alegria</p></div>
 
 <div class="card"><div class="antes-depois">
-<img src="escova6-antes.jpeg" onclick="abrirModal(this.src)">
-<img src="escova6-depois.jpeg" onclick="abrirModal(this.src)">
+<img src="escova6-antes.jpeg">
+<img src="escova6-depois.jpeg">
 </div><p>Lavagem</p></div>
 
 <div class="card"><div class="antes-depois">
-<img src="escova7-antes.jpeg" onclick="abrirModal(this.src)">
-<img src="escova7-depois.jpeg" onclick="abrirModal(this.src)">
+<img src="escova7-antes.jpeg">
+<img src="escova7-depois.jpeg">
 </div><p>Concentração desde o início</p></div>
 
 </div>
@@ -220,18 +235,18 @@ footer {
 <div class="galeria">
 
 <div class="card"><div class="antes-depois">
-<img src="penteado1-antes.jpeg" onclick="abrirModal(this.src)">
-<img src="penteado1-depois.jpeg" onclick="abrirModal(this.src)">
+<img src="penteado1-antes.jpeg">
+<img src="penteado1-depois.jpeg">
 </div><p>Penteado Elegante</p></div>
 
 <div class="card"><div class="antes-depois">
-<img src="penteado2-antes.jpeg" onclick="abrirModal(this.src)">
-<img src="penteado2-depois.jpeg" onclick="abrirModal(this.src)">
+<img src="penteado2-antes.jpeg">
+<img src="penteado2-depois.jpeg">
 </div><p>Penteado para Eventos</p></div>
 
 <div class="card"><div class="antes-depois">
-<img src="sofisticado1.jpeg" onclick="abrirModal(this.src)">
-<img src="sofisticado2.jpeg" onclick="abrirModal(this.src)">
+<img src="sofisticado1.jpeg">
+<img src="sofisticado2.jpeg">
 </div><p>Penteado Sofisticado</p></div>
 
 </div>
@@ -244,8 +259,8 @@ footer {
 
 <div class="card especial">
 <div class="antes-depois">
-<img src="cacheado-antes.jpeg" onclick="abrirModal(this.src)">
-<img src="cacheado-depois.jpeg" onclick="abrirModal(this.src)">
+<img src="cacheado-antes.jpeg">
+<img src="cacheado-depois.jpeg">
 </div>
 <p>Definição, leveza e movimento para valorizar a beleza natural dos seus cachos</p>
 </div>
@@ -258,9 +273,11 @@ WhatsApp
 </a>
 
 <!-- MODAL -->
-<div id="modal" onclick="fecharModal()">
+<div id="modal">
   <span id="fechar">&times;</span>
+  <span id="prev">❮</span>
   <img id="imgModal">
+  <span id="next">❯</span>
 </div>
 
 <!-- AUDIO -->
@@ -269,15 +286,50 @@ WhatsApp
 </audio>
 
 <script>
-function abrirModal(src) {
+let imagens = [];
+let indexAtual = 0;
+
+/* PEGAR TODAS AS IMAGENS */
+document.querySelectorAll(".antes-depois img").forEach((img, index) => {
+  imagens.push(img.src);
+
+  img.addEventListener("click", function () {
+    abrirModal(index);
+  });
+});
+
+function abrirModal(index) {
+  indexAtual = index;
   document.getElementById("modal").style.display = "flex";
-  document.getElementById("imgModal").src = src;
+  document.getElementById("imgModal").src = imagens[indexAtual];
 }
 
 function fecharModal() {
   document.getElementById("modal").style.display = "none";
 }
 
+function trocarImagem(direcao) {
+  indexAtual += direcao;
+
+  if (indexAtual < 0) indexAtual = imagens.length - 1;
+  if (indexAtual >= imagens.length) indexAtual = 0;
+
+  document.getElementById("imgModal").src = imagens[indexAtual];
+}
+
+/* BOTÕES */
+document.getElementById("fechar").onclick = fecharModal;
+document.getElementById("prev").onclick = () => trocarImagem(-1);
+document.getElementById("next").onclick = () => trocarImagem(1);
+
+/* TECLADO */
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape") fecharModal();
+  if (e.key === "ArrowRight") trocarImagem(1);
+  if (e.key === "ArrowLeft") trocarImagem(-1);
+});
+
+/* AUDIO */
 document.addEventListener("click", function () {
   const audio = document.getElementById("bg-audio");
   audio.muted = false;
