@@ -26,8 +26,8 @@ header img {
   left: 20px;
   top: 15px;
   height: 190px;
-  width: auto;
 }
+
 header h1 {
   margin: 0;
   font-size: 32px;
@@ -36,12 +36,6 @@ header h1 {
 header p {
   margin-top: 10px;
   color: #bbb;
-}
-
-/* DESTAQUE */
-.destaque {
-  padding: 50px 20px;
-  text-align: center;
 }
 
 /* SEÇÕES */
@@ -76,21 +70,32 @@ h2 {
   transform: translateY(-5px) scale(1.02);
 }
 
-/* ANTES E DEPOIS */ .antes-depois { display: flex; } .antes-depois img { width: 50%; height: 320px; object-fit: cover; } 
-  
+/* ANTES E DEPOIS (PADRÃO) */
+.antes-depois {
+  display: flex;
+}
+
+.antes-depois img {
+  width: 50%;
+  height: 280px;
+  object-fit: cover;
+}
+
+/* CACHEADO (AGORA DECENTE 😌) */
 .especial .antes-depois {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
+  padding: 10px;
 }
 
 .especial .antes-depois img {
-  width: 45%;
-  height: auto;
-  max-height: 300px;
+  width: 48%;
+  height: 280px;
   object-fit: cover;
   border-radius: 10px;
-}  
+}
+
 /* TEXTO */
 .card p {
   text-align: center;
@@ -176,7 +181,29 @@ footer {
 <p>Escova Polida</p>
 </div>
 
-<div class="card"> <div class="antes-depois"> <img src="escova5-antes.jpeg"> <img src="escova5-depois.jpeg"> </div> <p>Preparação com alegria</p> </div> <div class="card"> <div class="antes-depois"> <img src="escova6-antes.jpeg"> <img src="escova6-depois.jpeg"> </div> <p>Lavagem</p> </div> <div class="card"> <div class="antes-depois"> <img src="escova7-antes.jpeg"> <img src="escova7-depois.jpeg"> </div> <p>Concentração desde o ínicio</p> </div>  
+<div class="card">
+<div class="antes-depois">
+<img src="escova5-antes.jpeg">
+<img src="escova5-depois.jpeg">
+</div>
+<p>Preparação com alegria</p>
+</div>
+
+<div class="card">
+<div class="antes-depois">
+<img src="escova6-antes.jpeg">
+<img src="escova6-depois.jpeg">
+</div>
+<p>Lavagem</p>
+</div>
+
+<div class="card">
+<div class="antes-depois">
+<img src="escova7-antes.jpeg">
+<img src="escova7-depois.jpeg">
+</div>
+<p>Concentração desde o início</p>
+</div>
 
 </div>
 </section>
@@ -238,12 +265,11 @@ WhatsApp
 </audio>
 
 <script>
-  // força iniciar o áudio após interação
-  document.addEventListener("click", function () {
-    const audio = document.getElementById("bg-audio");
-    audio.muted = false;
-    audio.play();
-  });
+document.addEventListener("click", function () {
+  const audio = document.getElementById("bg-audio");
+  audio.muted = false;
+  audio.play();
+});
 </script>
 
 <footer>
